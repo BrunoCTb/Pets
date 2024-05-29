@@ -7,6 +7,7 @@ import com.pets.petsecommerce.service.RoleService;
 import com.pets.petsecommerce.service.UserService;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,7 +31,8 @@ public class RegisterController {
         }
 
         Role roleUser = roleService.findById(1L).get();
-        User user = new User(data.username(), data.email(), data.password(), Set.of(roleUser));
+        String encode = new BCryptPasswordEncoder().encode(data.password());
+        User user = new User(data.username(), data.email(), encode, Set.of(roleUser));
         userService.save(user);
 
         return data.toString();
