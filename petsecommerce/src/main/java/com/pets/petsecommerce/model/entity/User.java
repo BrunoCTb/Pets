@@ -11,6 +11,7 @@ import java.util.Set;
 @Entity
 @Data
 @NoArgsConstructor
+@Table(name = "users")
 public class User {
 
     @Id
@@ -21,8 +22,12 @@ public class User {
     private String password;
     @ManyToMany
     @LazyCollection(LazyCollectionOption.TRUE)
-    private Set<Role> roles;
+    private Set<Role> roles; // 1 user | 2 admin
 
-
-
+    public User(String username, String email, String password, Set<Role> roles) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.roles = roles;
+    }
 }
