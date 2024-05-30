@@ -23,6 +23,7 @@ public class SecurityConfig {
         http
                 .csrf(c -> c.disable())
                 .authorizeHttpRequests(requests -> requests
+                        .requestMatchers("/css/**", "/js/**", "/pictures/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/", "/index").permitAll()
                         .requestMatchers(HttpMethod.POST, "/register").permitAll()
                         .anyRequest().authenticated()

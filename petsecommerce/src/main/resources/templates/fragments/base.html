@@ -1,0 +1,25 @@
+<nav th:fragment="navbar">
+    <div class="logo">
+        <span><img th:src="@{/pictures/logo/logo-menor-sem-fundo.png}" alt="Logo"></span>
+    </div>
+
+    <ul class="main-links">
+        <li><a href="#">Início</a></li>
+        <li><a href="#">Produtos</a></li>
+        <li><a href="#">Loja</a></li>
+        <li><a href="#">Projeto</a></li>
+        <li><a href="#">Contato</a></li>
+    </ul>
+
+    <div class="search-bar">
+        <div class="mag-img">
+            <img th:src="@{pictures/icons/lupa.png}" alt="lupa de pesquisa">
+        </div>
+        <input type="text">
+    </div>
+
+    <ul class="acc-links">
+        <li><a href="#">Register</a></li>
+        <li><a href="#">Login</a></li>
+    </ul>
+</nav>
