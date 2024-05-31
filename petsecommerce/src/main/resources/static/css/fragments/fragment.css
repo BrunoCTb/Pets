@@ -1,0 +1,84 @@
+/* ------- GlOBAL ------- */
+@import url('https://fonts.googleapis.com/css2?family=Sevillana&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* ------- NAVBAR ------- */
+.navbar {
+    border-bottom: 1px solid #000;
+    height: calc(15vh - 60px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 50px;
+    font-family: "Sevillana", cursive;
+    font-size: 15pt;
+}
+
+.navbar > .logo {
+    width: 10%;
+}
+
+.logo img {
+    max-width: 100%;
+    width: 50%;
+    border-radius: 100%;
+    border: 2px solid #000;
+    background-color: #ffd3ec;
+    cursor: pointer;
+}
+
+.main-links, .acc-links {
+    display: flex;
+    list-style: none;
+}
+
+.main-links li, .acc-links li {
+    margin: 0 20px;
+}
+
+.main-links a, .acc-links a {
+    text-decoration: none;
+    color: #000;
+}
+
+.main-links a:hover, .acc-links a:hover {
+    text-decoration: underline;
+}
+
+.search-bar {
+    width: 15%;
+    position: relative;
+    background-color: aqua;
+}
+
+.search-bar button {
+    position: absolute;
+    top: calc(0);
+    right: -30px;
+    width: 30px;
+    height: 100%;
+    border: solid 1px #000;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #d6d6d6;
+}
+
+.search-bar img {
+    width: 70%;
+}
+
+.search-bar input{
+    width: 100%;
+    height: 30px;
+    padding: 10px;
+    border: solid 1px #000;
+    border-right: none;
+    outline: none;
+}

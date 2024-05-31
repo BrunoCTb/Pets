@@ -1,6 +1,6 @@
-<nav th:fragment="navbar">
+<nav th:fragment="navbar" class="navbar">
     <div class="logo">
-        <span><img th:src="@{/pictures/logo/logo-menor-sem-fundo.png}" alt="Logo"></span>
+        <img th:src="@{/pictures/logo/logo-menor-sem-fundo.png}" alt="Logo">
     </div>
 
     <ul class="main-links">
@@ -12,10 +12,8 @@
     </ul>
 
     <div class="search-bar">
-        <div class="mag-img">
-            <img th:src="@{pictures/icons/lupa.png}" alt="lupa de pesquisa">
-        </div>
-        <input type="text">
+        <button><img th:src="@{pictures/icons/lupa.png}" alt="lupa de pesquisa"></button>
+        <input type="text" placeholder="Pesquise um produto">
     </div>
 
     <ul class="acc-links">
