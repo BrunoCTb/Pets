@@ -1,0 +1,122 @@
+main {
+    background-color: #fce9d1;
+    padding: 80px 120px;
+    font-family: "Lato", sans-serif;
+}
+
+main article {
+    /* background-color: rebeccapurple; */
+    position: relative;
+}
+
+.main-banner {}
+
+.main-banner img {
+    width: 100%;
+    height: 400px;
+}
+
+.main-banner h2 {
+    position: absolute;
+    top: 25%;
+    left: 20%;
+    font-size: 45pt;
+}
+
+.products {
+    margin-top: 40px;
+    width: 100%;
+}
+
+.products > .product-section {
+    margin-bottom: 80px;
+}
+
+.products .product-shop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.products .product-shop a {
+    color: #5c5c5c;
+}
+
+.products .product-shop a:hover {
+    color: #000;
+}
+
+.products .product-shop h2 {
+    font-size: 25pt;
+}
+
+.products .list-of-products {
+    display: flex;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.list-of-products .product {
+    width: calc(20% - 40px);
+    margin-right: 2%;
+    border: 1px solid #000;
+    height: calc(400px - 40px);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.list-of-products .product .product-image {
+    background-color: red;
+    width: 100%;
+    height: 40%;
+    margin-bottom: 20px;
+}
+
+.product .p-main-line {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.p-main-line #productName {
+    margin-right: 10px;
+}
+
+.p-main-line #productColor {
+    color: #00000075;
+}
+
+.p-price-line{
+}
+
+.p-price-line #productPrice {
+    margin-right: 5px;
+    color: #bd0000;
+    text-decoration: line-through;
+}
+
+.p-price-line #productOffer {
+    font-size: 14pt;
+    font-weight: bold;
+}
+
+.p-buy-line {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.p-buy-line button {
+    background-color: #00000075;
+    color: #fff;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.p-buy-line button:hover {
+    background-color: #2e2e2e75;
+}

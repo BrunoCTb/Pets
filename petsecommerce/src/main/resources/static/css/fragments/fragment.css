@@ -1,5 +1,7 @@
 /* ------- GlOBAL ------- */
 @import url('https://fonts.googleapis.com/css2?family=Sevillana&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
 
 * {
     margin: 0;
@@ -17,7 +19,8 @@
     align-items: center;
     padding: 30px 50px;
     font-family: "Sevillana", cursive;
-    font-size: 15pt;
+    font-size: 17pt;
+    letter-spacing: 1px;
 }
 
 .navbar > .logo {
@@ -83,3 +86,95 @@
     border-right: none;
     outline: none;
 }
+
+/* FOOTER */
+footer {
+    background-color: #fdc0ff;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    font-family: 'Lato';
+}
+
+.footer-area {
+    display: flex;
+    justify-content: center;
+    width: 30%;
+    height: 70%;
+    margin: auto;
+}
+
+.footer-area h5 {
+    font-size: 12pt;
+    margin-bottom: 20px;
+    text-align: center; /* Opcional: Centraliza o texto */
+}
+
+.footer-area div {
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+}
+
+.footer-area ul {
+    list-style: none;
+}
+
+.footer-area ul > li {
+    margin-bottom: 8px;
+    font-size: 10pt;
+}
+
+.footer-area a {
+    text-decoration: none;
+    color: #000;
+}
+
+.footer-area a:hover {
+    text-decoration: underline;
+}
+
+.footer-info-links {
+    /* background-color: green; */
+    text-align: center;
+}
+
+.footer-send-email {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: yellow; */
+}
+
+.footer-send-email a {
+    display: flex;
+    align-items: center;
+    font-size: 10pt;
+}
+
+.footer-send-email img {
+    width: 20px;
+    margin-right: 5px;
+}
+
+.footer-social-links {
+    /* background-color: blueviolet; */
+}
+
+.footer-social-links ul {
+    display: flex;
+
+}
+
+.footer-social-links img {
+    width: 25px;
+    margin: 0 5px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.footer-social-links img:hover {
+    transform: scale(1.2);
+}
+

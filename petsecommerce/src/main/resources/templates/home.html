@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" th:href="@{/css/fragments/fragment.css}">
+	<link rel="stylesheet" th:href="@{/css/home/style.css}">
 	<title>Início</title>
 </head>
 <body>
@@ -12,28 +13,36 @@
 	<main>
 		<article class="main-banner">
 			<img th:src="@{pictures/banner.jpg}" alt="">
-			<h2>Image text</h2>
+			<h2>Seja bem vindo ao Pets!</h2>
 		</article>
 
 		<!-- Formato decidido de: 'separação por categorias' -->
-		<article class="products" th:each="p: ${products}">
-			<section class="product-section new">
-				<div>
+		<article class="products">
+			<section class="product-section new" th:each="p: ${products}">
+				<div class="product-shop">
 					<h2 class="product-type">Novos produtos</h2>
 					<a href="#">Comprar</a>
 				</div>
 
 				<div class="list-of-products">
-					<div class="product">
+					<div class="product" th:each="p: ${products}">
 						<div class="product-image">
 							<img src="" alt="imagem do produto">
 						</div>
 
 						<div class="product-info">
-							<h4>Nome produto</h4>
-							<span>cor</span>
-							<span>preço</span>
-							<span>desconto</span>
+							<div class="p-main-line">
+								<h4 id="productName">Nome produto</h4>
+								<span id="productColor">Cor</span>
+							</div>
+							<div class="p-price-line">
+								<span id="productPrice">R$ 15,25</span>
+								<span id="productOffer">R$ 10,99</span>
+							</div>
+							<div class="p-buy-line">
+								<button>Adicionar ao carrinho</button>
+								<button>Comprar</button>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -41,25 +50,7 @@
 		</article>
 	</main>
 
-	<footer>
-		<div class="footer-area">
-			<section class="footer-info-links">
-				<ul>
-					<li><a href="#">Sobre</a></li>
-					<li><a href="#">Contato</a></li>
-					<li><a href="#">Projeto</a></li>
-					<li><a href="#">BrunoCTb</a></li>
-				</ul>
-			</section>
-
-			<section class="footer-social-links">
-				<ul>
-					<li><a href="#"><img th:src="@{/pictures/social/whatsapp.png}" alt=""> </a></li>
-					<li><a href="#"><img th:src="@{/pictures/social/instagram.png}" alt=""> </a></li>
-				</ul>
-			</section>
-			
-		</div>
-	</footer>
+	<div th:replace="~{fragments/base :: footer}"></div>
+	
 </body>
 </html>

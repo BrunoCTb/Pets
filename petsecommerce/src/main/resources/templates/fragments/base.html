@@ -1,3 +1,5 @@
+<!-- NAV BAR -->
+
 <header th:fragment="navbar" class="navbar">
     <div class="logo">
         <img th:src="@{/pictures/logo/logo-menor-sem-fundo.png}" alt="Logo">
@@ -21,3 +23,31 @@
         <li><a href="#">Login</a></li>
     </ul>
 </header>
+
+<!-- FOOTER -->
+<footer th:fragment="footer">
+    <div class="footer-area">
+        <div class="footer-info-links">
+            <h5>Info:</h5>
+            <ul>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Contato</a></li>
+                <li><a href="#">Projeto</a></li>
+                <li><a href="#">BrunoCTb</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-send-email">
+            <h5>Contatar:</h5>
+            <a href="#"><img th:src="@{/pictures/icons/email.png}" alt="">Enviar email</a>
+        </div>
+
+        <div class="footer-social-links">
+            <h5>Social:</h5>
+            <ul>
+                <li><a href="#"><img th:src="@{/pictures/social/whatsapp.png}" alt=""> </a></li>
+                <li><a href="#"><img th:src="@{/pictures/social/instagram.png}" alt=""> </a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
