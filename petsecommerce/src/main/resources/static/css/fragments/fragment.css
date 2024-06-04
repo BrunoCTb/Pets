@@ -9,6 +9,7 @@
 
 /* ------- NAVBAR ------- */
 .navbar {
+    background-color: #fdc0ff;
     border-bottom: 1px solid #000;
     height: calc(15vh - 60px);
     display: flex;
@@ -60,7 +61,7 @@
     position: absolute;
     top: calc(0);
     right: -30px;
-    width: 30px;
+    width: 50px;
     height: 100%;
     border: solid 1px #000;
     cursor: pointer;
@@ -71,7 +72,7 @@
 }
 
 .search-bar img {
-    width: 70%;
+    width: 40%;
 }
 
 .search-bar input{

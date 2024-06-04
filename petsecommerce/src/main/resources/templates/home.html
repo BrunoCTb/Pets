@@ -9,7 +9,29 @@
 <body>
 	<div th:replace="~{fragments/base :: navbar}"></div>
 
-	<h1>Home</h1>
+	<main>
+		<article class="main-banner">
+			<img th:src="@{pictures/banner.jpg}" alt="">
+			<h2>Image text</h2>
+		</article>
 
+		<!-- Formato decidido de: 'separação por categorias' -->
+		<article class="products">
+			<section class="product-section new">
+				<div>
+					<h2 class="product-type">Novos produtos</h2>
+					<a href="#">Comprar</a>
+				</div>
+
+				<div class="list-of-products">
+					<!-- for loop -->
+				</div>
+			</section>
+		</article>
+	</main>
+
+	<footer>
+		
+	</footer>
 </body>
 </html>

@@ -1,0 +1,11 @@
+# 1: https://notebooktherapy.com/
+
+Buscar referência no 'content' do site, onde pode ser utilizado 
+o banner principal e o estilo dos produtos no layout aparentemente como 'grid'
+
+# 2: https://shopkako.com/
+
+Modo de apresentação das categorias dos produtos e separacao assim 
+como no projeto 'Merca', lancar uma diferenca no meio das "divisoes"
+de categoria e footer aproveitando o espaco para colocar o campo 'contato'
+e sociais (linkedIn, GitHub, etc)
