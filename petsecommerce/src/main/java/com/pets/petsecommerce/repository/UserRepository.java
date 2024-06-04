@@ -1,6 +1,6 @@
 package com.pets.petsecommerce.repository;
 
-import com.pets.petsecommerce.model.entity.User;
+import com.pets.petsecommerce.model.entity.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

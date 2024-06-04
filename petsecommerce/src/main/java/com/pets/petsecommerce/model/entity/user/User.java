@@ -1,4 +1,4 @@
-package com.pets.petsecommerce.model.entity;
+package com.pets.petsecommerce.model.entity.user;
 
 import jakarta.persistence.*;
 import lombok.Data;

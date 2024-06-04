@@ -1,6 +1,6 @@
 package com.pets.petsecommerce.service;
 
-import com.pets.petsecommerce.model.entity.User;
+import com.pets.petsecommerce.model.entity.user.User;
 import com.pets.petsecommerce.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;

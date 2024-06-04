@@ -1,6 +1,6 @@
 package com.pets.petsecommerce.security;
 
-import com.pets.petsecommerce.model.entity.User;
+import com.pets.petsecommerce.model.entity.user.User;
 import com.pets.petsecommerce.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

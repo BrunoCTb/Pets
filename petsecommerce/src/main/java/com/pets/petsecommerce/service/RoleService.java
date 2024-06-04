@@ -1,6 +1,6 @@
 package com.pets.petsecommerce.service;
 
-import com.pets.petsecommerce.model.entity.Role;
+import com.pets.petsecommerce.model.entity.user.Role;
 import com.pets.petsecommerce.repository.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -16,7 +16,7 @@
 		</article>
 
 		<!-- Formato decidido de: 'separação por categorias' -->
-		<article class="products">
+		<article class="products" th:each="p: ${products}">
 			<section class="product-section new">
 				<div>
 					<h2 class="product-type">Novos produtos</h2>
@@ -24,14 +24,42 @@
 				</div>
 
 				<div class="list-of-products">
-					<!-- for loop -->
+					<div class="product">
+						<div class="product-image">
+							<img src="" alt="imagem do produto">
+						</div>
+
+						<div class="product-info">
+							<h4>Nome produto</h4>
+							<span>cor</span>
+							<span>preço</span>
+							<span>desconto</span>
+						</div>
+					</div>
 				</div>
 			</section>
 		</article>
 	</main>
 
 	<footer>
-		
+		<div class="footer-area">
+			<section class="footer-info-links">
+				<ul>
+					<li><a href="#">Sobre</a></li>
+					<li><a href="#">Contato</a></li>
+					<li><a href="#">Projeto</a></li>
+					<li><a href="#">BrunoCTb</a></li>
+				</ul>
+			</section>
+
+			<section class="footer-social-links">
+				<ul>
+					<li><a href="#"><img th:src="@{/pictures/social/whatsapp.png}" alt=""> </a></li>
+					<li><a href="#"><img th:src="@{/pictures/social/instagram.png}" alt=""> </a></li>
+				</ul>
+			</section>
+			
+		</div>
 	</footer>
 </body>
 </html>
