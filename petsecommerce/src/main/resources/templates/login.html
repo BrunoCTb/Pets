@@ -4,23 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/fragments/fragment.css}">
-    <link rel="stylesheet" th:href="@{/css/home/style.css}">
+    <link rel="stylesheet" th:href="@{/css/login/style.css}">
     <title>Início</title>
 </head>
 <body>
-    <h1>Please Log In</h1>
-    <div th:if="${param.error}">
-        Invalid username and password.</div>
-    <div th:if="${param.logout}">
-        You have been logged out.</div>
-    <form th:action="@{/login}" method="post">
-        <div>
-            <input type="text" name="username" placeholder="Username" />
+    <div th:replace="~{fragments/base :: navbar}"></div>
+
+    <div class="login-area">
+        <h2>Login</h2>
+        <div class="login-error" th:if="${param.error}">
+            <span>Email ou senha inválidos!</span>
         </div>
-        <div>
-            <input type="password" name="password" placeholder="Password" />
+        <div class="login-logout" th:if="${param.logout}">
+            <span>Você saiu da sua conta!</span>
         </div>
-        <input type="submit" value="Log in" />
-    </form>
+        <form th:action="@{/login}" method="post">
+            <div class="login-input">
+                <input type="text" name="username" placeholder="Username" />
+                <input type="password" name="password" placeholder="Password" />
+            </div>
+            <div class="login-submit">
+                <input type="submit" value="Entrar"/>
+            </div>
+            <div class="alternative-login">
+                <div>
+                    <hr>ou<hr>
+                </div>
+
+                <ul>
+                    <li><a href="#"><img th:src="@{/pictures/social/facebook.png}" alt=""></a></li>
+                    <li><a href="#"><img th:src="@{/pictures/social/github.png}" alt=""></a></li>
+                    <li><a href="#"><img th:src="@{/pictures/social/google.png}" alt=""></a></li>
+                    <li><a href="#"><img th:src="@{/pictures/social/x.png}" alt=""></a></li>
+                </ul>
+            </div>
+            <div class="login-acc">
+                <a href="#">Esqueci minha senha</a>
+                <a th:href="@{/register}">Não tenho uma conta</a>
+            </div>
+        </form>
+    </div>
 </body>
 </html>

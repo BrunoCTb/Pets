@@ -1,0 +1,120 @@
+body {
+    background-color: #fce9d1;
+}
+
+.login-area {
+    background-color: #fdc0ff;
+    width: calc(50% - 60px);
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 60px auto;
+    padding: 30px;
+    border-radius: 12px;
+    font-family: 'Lato';
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.5);
+}
+
+.login-area h2 {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 35px;
+}
+
+.login-area form {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-area form > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-area .login-input {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.login-area .login-input input {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #000;
+    outline: none;
+}
+
+.login-area .login-submit {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.login-area .login-submit input {
+    background-color: #fff;
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    border: 1px solid #000;
+}
+
+.login-area .login-submit input:hover {
+    background-color: #fce9d1;
+}
+
+.alternative-login {
+    width: 100%;
+    margin-top: 15px;
+}
+
+.alternative-login div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.alternative-login hr {
+    color: #0000009f;
+    width: 100%;
+    height: 0.05px;
+    margin: 0 7px;
+}
+
+.alternative-login ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.alternative-login img {
+    width: 25px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.alternative-login img:hover {
+    transform: scale(1.2);
+}
+
+.login-acc {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.login-acc a {
+    color: #5c5c5c;
+}
+
+.login-acc a:hover {
+    color: #000;
+}
+
+
