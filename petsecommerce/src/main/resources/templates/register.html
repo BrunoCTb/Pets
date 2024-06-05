@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/fragments/fragment.css}">
+    <link rel="stylesheet" th:href="@{/css/register/style.css}">
+    <title>Document</title>
+</head>
+
+<body>
+    <div th:replace="~{fragments/base :: navbar}"></div>
+
+    <div class="register-area">
+        <div class="left-side">
+            <h2>Crie Seu Perfil e Explore</h2>
+            <p>Para aproveitar todas as vantagens e ofertas exclusivas, faça seu cadastro agora mesmo. É rápido e fácil!
+            </p>
+        </div>
+
+        <div class="right-side">
+            <form method="post">
+                <div class="register-title">
+                    <h2>Cadastro</h2>
+                </div>
+
+                <div class="register-input">
+                    <div class="doub">
+                        <input type="text" name="firstName" placeholder="Nome">
+                        <input type="text" name="lastName" placeholder="Sobrenome">
+                    </div>
+                    <div>
+                        <input type="email" name="email" placeholder="Email">
+                    </div>
+                    <div class="doub">
+                        <input type="password" name="password" placeholder="Senha">
+                        <input type="password" name="confirmPassword" placeholder="Confirmar Senha">
+                    </div>
+                    <div>
+                        <input type="tel" name="tel" placeholder="Telefone">
+                    </div>
+                </div>
+
+                <div class="form-submit">
+                    <input type="submit" value="Cadastrar">
+                </div>
+
+                <div class="alternative-login">
+                    <div>
+                        <hr>ou<hr>
+                    </div>
+
+                    <ul>
+                        <li><a href="#"><img th:src="@{/pictures/social/facebook.png}" alt=""></a></li>
+                        <li><a href="#"><img th:src="@{/pictures/social/github.png}" alt=""></a></li>
+                        <li><a href="#"><img th:src="@{/pictures/social/google.png}" alt=""></a></li>
+                        <li><a href="#"><img th:src="@{/pictures/social/x.png}" alt=""></a></li>
+                    </ul>
+                </div>
+
+                <div class="form-other">
+                    <a href="#">Esqueci minha senha</a>
+                    <a href="#">Já tenho um registro</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <div th:replace="~{fragments/base :: footer}"></div>
+
+
+</body>
+
+</html>
