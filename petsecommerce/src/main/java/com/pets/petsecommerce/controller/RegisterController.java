@@ -5,12 +5,11 @@ import com.pets.petsecommerce.model.entity.user.Role;
 import com.pets.petsecommerce.model.entity.user.User;
 import com.pets.petsecommerce.service.RoleService;
 import com.pets.petsecommerce.service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;
 
@@ -23,17 +22,18 @@ public class RegisterController {
     RoleService roleService;
 
     @PostMapping("/register")
-    public String createUser(@RequestBody RegisterDto data) throws IllegalArgumentException {
-        if (userService.findByUsernameOrEmail(data.username(), data.email()) != null) {
-            throw new IllegalArgumentException("Nome de usuário ou email já existente!");
+    public String createUser(@ModelAttribute @Valid RegisterDto data) throws IllegalArgumentException {
+        if (userService.findByEmail(data.getEmail()) != null) {
+            return "register";
         }
 
         Role roleUser = roleService.findById(1L).get();
-        String encode = new BCryptPasswordEncoder().encode(data.password());
-        User user = new User(data.username(), data.email(), encode, Set.of(roleUser));
+        String encode = new BCryptPasswordEncoder().encode(data.getPassword());
+        User user = new User(data.getFirstName(), data.getLastName(), data.getEmail(),
+                data.getPassword(), data.getTel(), Set.of(roleUser));
         userService.save(user);
 
-        return data.toString();
+        return "redirect:/";
     }
 
     @GetMapping("/register")

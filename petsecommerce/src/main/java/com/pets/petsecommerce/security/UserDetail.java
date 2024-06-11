@@ -20,7 +20,7 @@ public class UserDetail implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User u = userService.findByUsernameOrEmail(username, username);
+        User u = userService.findByEmail(username);
 
         if (u == null) {
             throw new UsernameNotFoundException("Usuario nao cadastrado!");
