@@ -1,14 +1,12 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-br" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/fragments/fragment.css}">
     <link rel="stylesheet" th:href="@{/css/register/style.css}">
-    <title>Document</title>
+    <title>Pets - Cadastro</title>
 </head>
-
 <body>
     <div th:replace="~{fragments/base :: navbar}"></div>
 
@@ -34,6 +32,7 @@
                         <input type="email" name="email" placeholder="Email">
                     </div>
                     <div class="doub">
+                        <span th:if="${passwordMatches != null}" th:text="${passwordMatches}"></span>
                         <input type="password" name="password" placeholder="Senha">
                         <input type="password" name="confirmPassword" placeholder="Confirmar Senha">
                     </div>
@@ -69,8 +68,5 @@
 
 
     <div th:replace="~{fragments/base :: footer}"></div>
-
-
 </body>
-
 </html>
