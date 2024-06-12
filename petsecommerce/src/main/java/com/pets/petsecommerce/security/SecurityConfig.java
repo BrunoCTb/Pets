@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -18,6 +19,27 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
+    @Bean
+    public SecurityFilterChain adminSecurityFilterChain(HttpSecurity http) throws Exception {
+        http
+                .csrf(c -> c.disable())
+                .securityMatcher(new AntPathRequestMatcher("/admin/**"))
+                .authorizeHttpRequests(authz -> authz
+                        .requestMatchers("/css/**", "/js/**", "/pictures/**").permitAll()
+                        .requestMatchers("/admin", "/admin/**").hasRole("ADMIN")
+                )
+                .formLogin(f -> f
+                        .loginPage("/admin/login")
+                        .loginProcessingUrl("/admin/login")
+                        .defaultSuccessUrl("/admin/")
+                        .permitAll()
+                )
+                .logout(logout -> logout
+                        .logoutRequestMatcher(new AntPathRequestMatcher("/admin/logout"))
+                        .permitAll());
+
+        return http.build();
+    }
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
@@ -38,4 +60,6 @@ public class SecurityConfig {
 
         return http.build();
     }
+
+
 }

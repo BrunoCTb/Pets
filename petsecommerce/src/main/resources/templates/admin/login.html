@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Login</title>
+</head>
+<body>
+
+<div class="login-area">
+    <h2>Login Admin</h2>
+    <div class="login-error" th:if="${param.error}">
+        <span>Email ou senha inválidos!</span>
+    </div>
+    <div class="login-logout" th:if="${param.logout}">
+        <span>Você saiu da sua conta!</span>
+    </div>
+    <form method="post">
+        <div class="login-input">
+            <input type="text" name="username" placeholder="Admin user" />
+            <input type="password" name="password" placeholder="Senha" />
+        </div>
+        <div class="login-submit">
+            <input type="submit" value="Entrar"/>
+        </div>
+    </form>
+</div>
+</body>
+</html>
