@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - create product</title>
+</head>
+<body>
+    <form method="post">
+        <h1>Adicionar produto</h1>
+        <input type="text" placeholder="Nome" name="name"><br>
+        <input type="text" placeholder="Preço" name="price"><br>
+        <input type="text" placeholder="Cor" name="color"><br>
+        <input type="text" placeholder="Tamanho" name="size"><br>
+        <div>
+            <label>Produto em oferta:</label><br>
+            Sim<input type="radio" name="offer">
+            Não<input type="radio" name="offer">
+        </div><br>
+        <input type="text" placeholder="Link da imagem" name="image"><br><br>
+
+        <input type="submit" value="Adicionar">
+    </form>
+</body>
+</html>

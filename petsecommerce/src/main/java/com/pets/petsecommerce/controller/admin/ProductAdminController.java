@@ -12,25 +12,32 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("/product")
+@RequestMapping("/admin/product")
 public class ProductAdminController {
 
     @Autowired
     ProductService productService;
 
     @GetMapping("/all")
-    public List<Product> getAllProducts() {
-        return productService.findAll();
+    public String getAllProducts() {
+        return "test";
     }
 
     @GetMapping("/get/{id}")
-    public Optional<Product> getAllProducts(@RequestParam Long id) {
-        return productService.findById(id);
+    public String getAllProducts(@RequestParam Long id) {
+        return "test";
+    }
+
+    @GetMapping("/create")
+    public String createProductForm() {
+        return "admin/create-product";
     }
 
     @PostMapping("/create")
-    public HttpStatus createProduct(@ModelAttribute ProductDto dto) {
-        return HttpStatus.CREATED;
+    public String createProduct(@ModelAttribute ProductDto dto) {
+        System.out.println(dto);
+
+        return "redirect:/admin/";
     }
 
     // update

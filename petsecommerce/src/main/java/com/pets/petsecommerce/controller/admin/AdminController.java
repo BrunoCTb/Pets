@@ -4,6 +4,7 @@ import com.pets.petsecommerce.model.entity.user.User;
 import com.pets.petsecommerce.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -16,7 +17,7 @@ public class AdminController {
     @Autowired
     private UserService userService;
 
-    @GetMapping({"/", "/home", "inicio"})
+    @GetMapping({"/", "/home", ""})
     public String home() {
         return "admin/home";
     }
@@ -27,8 +28,9 @@ public class AdminController {
     }
 
     @GetMapping("/users/all")
-    public List<User> user() {
-        return userService.findAll();
+    public String user(Model model) {
+        model.addAttribute("users", userService.findAll());
+        return "admin/users";
     }
 
 }
