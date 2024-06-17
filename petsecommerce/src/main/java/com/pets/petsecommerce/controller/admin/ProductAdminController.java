@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("/admin/product")
+@RequestMapping("/admin/produto")
 public class ProductAdminController {
 
     @Autowired
@@ -28,12 +28,12 @@ public class ProductAdminController {
         return "test";
     }
 
-    @GetMapping("/create")
+    @GetMapping("/criar")
     public String createProductForm() {
         return "admin/create-product";
     }
 
-    @PostMapping("/create")
+    @PostMapping("/criar")
     public String createProduct(@ModelAttribute ProductDto dto) {
         System.out.println(dto);
 
