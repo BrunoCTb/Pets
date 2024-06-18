@@ -14,8 +14,9 @@ public class MainController {
 
     @GetMapping({"/", "/index"})
     public String index(Model model) {
-        Product product = new Product("cachorro pelucia 1", "2.85", "branco", "pequeno", false, "no image");
-        List<Product> ps = List.of(product, product, product, product);
+
+        String product = "fake product";
+        List<String> ps = List.of(product, product, product, product);
 
          model.addAttribute("products", ps);
 
