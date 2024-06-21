@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Adicionar produto</title>
+</head>
+<body>
+    <form method="post">
+        <h1>Adicionar produto</h1>
+        <input type="text" placeholder="Nome" name="name"><br>
+        <input type="text" placeholder="Cor" name="color"><br>
+        
+        <div>
+            <label>Tamanho:</label>&nbsp
+            <input type="radio" name="size" value="pequeno">Pequeno
+            <input type="radio" name="size" value="médio" checked>Médio
+            <input type="radio" name="size" value="grande">Grande
+        </div>
+
+        <div>
+            <label>Produto em oferta:</label>&nbsp
+            <input type="radio" name="offer" th:value="false" checked="true">Não
+            <input type="radio" name="offer" th:value="true">Sim
+        </div><br>
+        <input type="text" placeholder="Link da imagem" name="image"><br><br>
+
+        <input type="text" placeholder="Preço padrão" name="price"><br>
+        <input type="text" placeholder="Preço de desconto" name="discountPrice"><br>
+        <input type="text" placeholder="Preço antigo (substituido por desconto)" name="previousPrice"><br>
+
+        <div>
+            <label>Início da oferta:</label>&nbsp
+            <input type="date" name="initialOffer">
+        </div>
+
+        <div>
+            <label>Expiração da oferta:</label>&nbsp
+            <input type="date" name="expirationOffer">
+        </div>
+
+        <div>
+            <label>Categoria:</label>&nbsp
+            <select name="category">
+                <option th:each="pc : ${productCategories}"
+                        th:value="${pc.getName()}"
+                        th:text="${pc.getName().substring(0, 1).toUpperCase() + pc.getName().substring(1)}">
+                </option>
+            </select>
+        </div>
+
+        <input type="submit" value="Adicionar">
+    </form>
+</body>
+</html>

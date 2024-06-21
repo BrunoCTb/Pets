@@ -1,13 +1,20 @@
 package com.pets.petsecommerce.model.entity.product;
 
+import com.pets.petsecommerce.dto.ProductDto;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Product {
 
     @Id
@@ -16,23 +23,21 @@ public class Product {
     private String name;
     private String color;
     private String size;
-    private Boolean offer;
+    private String offer;
     private String image;
 
     private BigDecimal price; // preço fixo/padrão que pode ser o mesmo do previous
     private BigDecimal discountPrice;
-    private BigDecimal previousPrice; // ex: R$ 7,50 (previous/antigo) -> R$ 5,50 (discount/oferta)
-    @Temporal(TemporalType.DATE)
-    private Date initialOffer; // data de inicio de oferta
-    @Temporal(TemporalType.DATE)
-    private Date expirationOffer;
+    private BigDecimal previousPrice; // e x: R$ 7,50 (previous/antigo) -> R$ 5,50 (discount/oferta)
+    private LocalDate initialOffer; // data de inicio de oferta
+    private LocalDate expirationOffer;
 
     @OneToOne
     private ProductCategory category;
 
-    public Product(String name, String color, String size, Boolean offer, String image, BigDecimal price,
-                   BigDecimal discountPrice, BigDecimal previousPrice, Date initialOffer,
-                   Date expirationOffer, ProductCategory category) {
+    public Product(String name, String color, String size, String offer, String image, BigDecimal price,
+                   BigDecimal discountPrice, BigDecimal previousPrice, LocalDate initialOffer,
+                   LocalDate expirationOffer, ProductCategory category) {
         this.name = name;
         this.color = color;
         this.size = size;
@@ -45,4 +50,5 @@ public class Product {
         this.expirationOffer = expirationOffer;
         this.category = category;
     }
+
 }
