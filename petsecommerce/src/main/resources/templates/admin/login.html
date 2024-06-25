@@ -3,27 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/admin/fragments/fragment.css}">
     <title>Admin - Login</title>
 </head>
 <body>
+    <div th:replace="~{admin/fragments/base-admin :: navbar}"></div>
 
-<div class="login-area">
-    <h2>Login Admin</h2>
-    <div class="login-error" th:if="${param.error}">
-        <span>Email ou senha inválidos!</span>
-    </div>
-    <div class="login-logout" th:if="${param.logout}">
-        <span>Você saiu da sua conta!</span>
-    </div>
-    <form method="post">
-        <div class="login-input">
-            <input type="text" name="username" placeholder="Admin user" />
-            <input type="password" name="password" placeholder="Senha" />
+    <div class="login-area">
+        <h2>Login Admin</h2>
+        <div class="login-error" th:if="${param.error}">
+            <span>Email ou senha inválidos!</span>
         </div>
-        <div class="login-submit">
-            <input type="submit" value="Entrar"/>
+        <div class="login-logout" th:if="${param.logout}">
+            <span>Você saiu da sua conta!</span>
         </div>
-    </form>
-</div>
+        <form method="post">
+            <div class="login-input">
+                <input type="text" name="username" placeholder="Admin user" />
+                <input type="password" name="password" placeholder="Senha" />
+            </div>
+            <div class="login-submit">
+                <input type="submit" value="Entrar" />
+            </div>
+        </form>
+    </div>
 </body>
+
 </html>

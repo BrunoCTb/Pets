@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/admin/fragments/fragment.css}">
+    <title>Admin - Produtos Home</title>
+</head>
+<body>
+    <div th:replace="~{admin/fragments/base-admin :: navbar}"></div>
+
+    <h1>Product Home</h1>
+
+    <ul>
+        <li><a th:href="@{/admin/product/all}">Todos os produtos</a></li>
+        <li><a th:href="@{/admin/product/create}">Adicionar produto</a></li>
+        <li><a th:href="@{/admin/product/edit}">Editar produto</a></li>
+        <li><a th:href="@{/admin/product/remove}">Deletar produto</a></li>
+    </ul>
+
+</body>
+</html>

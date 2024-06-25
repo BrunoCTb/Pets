@@ -1,4 +1,4 @@
-package com.pets.petsecommerce.controller;
+package com.pets.petsecommerce.controller.main;
 
 import com.pets.petsecommerce.model.entity.user.User;
 import com.pets.petsecommerce.service.UserService;

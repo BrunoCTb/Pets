@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/admin/fragments/fragment.css}">
     <title>Admin - Adicionar produto</title>
 </head>
 <body>
+    <div th:replace="~{admin/fragments/base-admin :: navbar}"></div>
+
     <form method="post">
         <h1>Adicionar produto</h1>
         <input type="text" placeholder="Nome" name="name"><br>

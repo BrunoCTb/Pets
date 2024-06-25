@@ -1,4 +1,4 @@
-package com.pets.petsecommerce.controller;
+package com.pets.petsecommerce.controller.main;
 
 import com.pets.petsecommerce.model.entity.product.Product;
 import org.springframework.stereotype.Controller;
@@ -20,18 +20,18 @@ public class MainController {
 
          model.addAttribute("products", ps);
 
-        return "home";
+        return "main/home";
     }
 
     @GetMapping("/login")
     public String login() {
-        return "login";
+        return "main/login";
     }
 
 
     @GetMapping("/test")
     public String test() {
-        return "test";
+        return "main/test";
     }
 
 }

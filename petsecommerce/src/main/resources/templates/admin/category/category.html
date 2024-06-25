@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/admin/fragments/fragment.css}">
+    <title>Admin - Categoria Home</title>
+</head>
+<body>
+    <div th:replace="~{admin/fragments/base-admin :: navbar}"></div>
+
+    <h1>Category Home</h1>
+
+    <ul>
+        <li><a th:href="@{/admin/category/all}">Todos as categorias</a></li>
+        <li><a th:href="@{/admin/category/create}">Adicionar categoria</a></li>
+        <li><a th:href="@{/admin/category/edit}">Editar categoria</a></li>
+        <li><a th:href="@{/admin/category/remove}">Deletar categoria</a></li>
+    </ul>
+
+</body>
+</html>

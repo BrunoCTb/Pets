@@ -3,12 +3,12 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" th:href="@{/css/fragments/fragment.css}">
-	<link rel="stylesheet" th:href="@{/css/home/style.css}">
+	<link rel="stylesheet" th:href="@{/css/main/fragments/fragment.css}">
+	<link rel="stylesheet" th:href="@{/css/main/home/style.css}">
 	<title>Pets - Início</title>
 </head>
 <body>
-	<div th:replace="~{fragments/base :: navbar}"></div>
+	<div th:replace="~{main/fragments/base :: navbar}"></div>
 
 	<main>
 		<article class="main-banner">
@@ -50,7 +50,7 @@
 		</article>
 	</main>
 
-	<div th:replace="~{fragments/base :: footer}"></div>
+	<div th:replace="~{main/fragments/base :: footer}"></div>
 	
 </body>
 </html>

@@ -29,6 +29,11 @@ public class ProductAdminController {
     @Autowired
     CategoryService categoryService;
 
+    @GetMapping
+    public String products() {
+        return "admin/product/products";
+    }
+
     @GetMapping("/all")
     public String getAllProducts(Model model) {
         model.addAttribute("products", productService.findAll());

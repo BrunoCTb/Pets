@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org" lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/admin/fragments/fragment.css}">
-    <title>Admin - Produtos</title>
+    <title>Admin - Adicionar categoria</title>
 </head>
+
 <body>
     <div th:replace="~{admin/fragments/base-admin :: navbar}"></div>
 
-    <h1>Todos os produtos:</h1>
+    <form method="post">
+        <h1>Adicionar categoria</h1>
+        <input type="text" placeholder="Nome" name="name"><br>
+        <input type="text" placeholder="Link da imagem" name="image"><br><br>
 
-    <div th:each="p : ${products}">
-        <div th:text="${p}"></div>
-    </div>
+        <input type="submit" value="Adicionar">
+    </form>
 </body>
+
 </html>
