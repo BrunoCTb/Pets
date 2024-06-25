@@ -37,6 +37,12 @@ public class ProductService {
 
     @Transactional
     public void update(Product updatedProduct) {
+        productRepository.save(updatedProduct);
+    }
+
+    @Transactional
+    public void deleteById(Long id) {
+        productRepository.deleteById(id);
     }
 
     public Product convertDtoToProduct(ProductDto dto) {
