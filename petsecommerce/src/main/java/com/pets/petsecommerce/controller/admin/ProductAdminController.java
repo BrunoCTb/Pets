@@ -6,17 +6,13 @@ import com.pets.petsecommerce.service.CategoryService;
 import com.pets.petsecommerce.service.ProductService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Date;
-import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -42,10 +38,29 @@ public class ProductAdminController {
     }
 
     @GetMapping("/edit/{id}")
-    public String editProduct(@PathVariable(value = "id") Long id) {
+    public String editProductForm(@PathVariable(value = "id") Long id, Model model) {
+        Optional<Product> product = productService.findById(id);
 
-        return "test";
+        if (product.isEmpty()) {
+            return "redirect:/admin";
+        }
+        
+        model.addAttribute("product", product.get());
+        model.addAttribute("productCategories", categoryService.findAll());
+
+        return "admin/product/edit-product";
     }
+
+    @PostMapping("/edit/{id}")
+    public String editProduct(@PathVariable(value = "id") Long id, ProductDto dto) {
+        Product product = productService.convertDtoToProduct(dto);
+        product.setId(id);
+
+        System.out.println(product);
+
+        return "redirect:/admin/product";
+    }
+
 
     @GetMapping("/create")
     public String createProductForm(Model model) {
@@ -56,20 +71,7 @@ public class ProductAdminController {
 
     @PostMapping("/create")
     public String createProduct(@ModelAttribute ProductDto dto) throws ParseException {
-        System.out.println(dto);
-
-        Product product = new Product();
-        BeanUtils.copyProperties(dto, product);
-
-        product.setPrice(new BigDecimal(dto.getPrice()));
-        product.setDiscountPrice(new BigDecimal(dto.getDiscountPrice()));
-        product.setPreviousPrice(new BigDecimal(dto.getPreviousPrice()));
-        product.setInitialOffer(LocalDate.parse(dto.getInitialOffer()));
-        product.setExpirationOffer(LocalDate.parse(dto.getExpirationOffer()));
-        product.setCategory(categoryService.findByName(dto.getCategory()));
-
-        System.out.println(product);
-
+        Product product = productService.convertDtoToProduct(dto);
         productService.save(product);
 
         return "redirect:/admin/";

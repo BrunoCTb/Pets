@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/admin/fragments/fragment.css}">
+    <title>Admin - Editar produto</title>
+</head>
+<body>
+    <div th:replace="~{admin/fragments/base-admin :: navbar}"></div>
+
+    <form method="post">
+        <h1>Editar produto</h1>
+
+        <input type="text" placeholder="Nome" name="name" th:value="${product.name}"><br>
+        <input type="text" placeholder="Cor" name="color" th:value="${product.color}"><br>
+
+        <div>
+            <label>Tamanho:</label>&nbsp
+            <input type="radio" name="size" value="pequeno" th:checked="${product.size == 'pequeno'}">Pequeno
+            <input type="radio" name="size" value="médio" th:checked="${product.size == 'médio'}">Médio
+            <input type="radio" name="size" value="grande" th:checked="${product.size == 'grande'}">Grande
+        </div>
+
+        <div>
+            <label>Produto em oferta:</label>&nbsp
+            <input type="radio" name="offer" value="false" th:checked="${!product.offer}">Não
+            <input type="radio" name="offer" value="true" th:checked="${product.offer}">Sim
+        </div>
+        <br>
+
+        <input type="text" placeholder="Link da imagem" name="image" th:value="${product.image}"><br><br>
+
+        <input type="text" placeholder="Preço padrão" name="price" th:value="${product.price}"><br>
+        <input type="text" placeholder="Preço de desconto" name="discountPrice" th:value="${product.discountPrice}"><br>
+        <input type="text" placeholder="Preço antigo (substituído por desconto)" name="previousPrice"
+               th:value="${product.previousPrice}"><br>
+
+        <div>
+            <label>Início da oferta:</label>&nbsp
+            <input type="date" name="initialOffer" th:value="${product.initialOffer}">
+        </div>
+
+        <div>
+            <label>Expiração da oferta:</label>&nbsp
+            <input type="date" name="expirationOffer" th:value="${product.expirationOffer}">
+        </div>
+
+        <div>
+            <label>Categoria:</label>&nbsp
+            <select name="category">
+                <option th:each="pc : ${productCategories}"
+                        th:value="${pc.name}"
+                        th:text="${pc.name.substring(0, 1).toUpperCase() + pc.name.substring(1)}"
+                        th:selected="${pc.id == product.category.id}">
+                </option>
+            </select>
+        </div>
+
+        <input type="submit" value="Editar">
+    </form>
+</body>
+</html>
