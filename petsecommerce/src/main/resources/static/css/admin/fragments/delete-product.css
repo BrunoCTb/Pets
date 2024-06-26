@@ -1,0 +1,38 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; /* Ajuste para 100% para cobrir toda a tela */
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none; /* Oculto por padrão */
+    justify-content: center;
+    align-items: center;
+    z-index: 9998;
+}
+
+/* Estilo para o card de confirmação */
+.delete-confirm-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: none; /* Oculto por padrão */
+    z-index: 9999;
+}
+
+.delete-confirm-card span {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.delete-confirm-card a {
+    margin: 5px;
+    text-decoration: none;
+    color: #007bff;
+    cursor: pointer;
+}
+
+.delete-confirm-card a:hover {
+    text-decoration: underline;
+}

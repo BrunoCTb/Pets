@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/admin/fragments/fragment.css}">
     <link rel="stylesheet" th:href="@{/css/admin/products/home.css}">
+    <link rel="stylesheet" th:href="@{/css/admin/fragments/delete-product.css}">
     <title>Admin - Produtos</title>
 </head>
 <body>
@@ -37,7 +38,7 @@
         <tbody>
             <tr th:each="product : ${products}">
                 <td><a th:href="@{'/admin/product/edit/' + ${product.id}}"><img th:src="@{/pictures/icons/edit.png}" alt="Edit" class="icon"></a></td>
-                <td><a th:href="@{'/admin/delete/' + ${product.id} + '/confirm'}"><img th:src="@{/pictures/icons/remove.png}" alt="Delete" class="icon"></a></td>
+                <td><a th:onclick="deleteCard([[${product.id}]])"><img th:src="@{/pictures/icons/remove.png}" alt="Delete" class="icon"></a></td>
                 <td th:text="${product.id}"></td>
                 <td th:text="${product.name}"></td>
                 <td th:text="${product.color}"></td>
@@ -52,6 +53,10 @@
                 <td th:text="${product.category.name}"></td>
             </tr>
         </tbody>
+
+        <div th:replace="~{admin/fragments/delete-product :: deleteProduct}"></div>
     </table>
+
+    <script th:src="@{/js/admin/product.js}"></script>
 </body>
 </html>
