@@ -11,12 +11,14 @@
 <body>
     <div th:replace="~{admin/fragments/base-admin :: navbar}"></div>
 
-    <h1>Todas as categorias:</h1>
-
+    <div class="title">
+        <h1>Todas as categorias:</h1>
+        <a class="add-category-link" th:href="@{/admin/category/create}"><img th:src="@{/pictures/icons/plus.png}">Adicionar categoria</a>
+    </div>
+        
     <table>
         <thead>
             <tr>
-                <th></th>
                 <th></th>
                 <th></th>
                 <th>ID</th>
@@ -26,7 +28,6 @@
         </thead>
         <tbody>
             <tr th:each="category : ${categories}">
-                <td><a th:href="@{/admin/category/create}"><img th:src="@{/pictures/icons/add.png}" alt="Add" class="icon"></a></td>
                 <td><a th:href="@{'/admin/category/edit/' + ${category.id}}"><img th:src="@{/pictures/icons/edit.png}" alt="Edit" class="icon"></a></td>
                 <td><a th:href="@{'/admin/category/delete/' + ${category.id} + '/confirm'}"><img th:src="@{/pictures/icons/remove.png}" alt="Delete" class="icon"></a></td>
                 <td th:text="${category.id}"></td>

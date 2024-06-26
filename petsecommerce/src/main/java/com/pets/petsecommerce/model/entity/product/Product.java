@@ -29,7 +29,7 @@ public class Product {
     private LocalDate initialOffer; // data de inicio de oferta
     private LocalDate expirationOffer;
 
-    @OneToOne
+    @ManyToOne
     private ProductCategory category;
 
     public Product(String name, String color, String size, String offer, String image, BigDecimal price,

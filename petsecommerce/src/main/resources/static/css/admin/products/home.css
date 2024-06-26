@@ -54,3 +54,31 @@ tr:nth-child(even) {
 .actions img {
     vertical-align: middle;
 }
+
+.title {
+    width: 90%;
+    margin: 40px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add-product-link {
+    color: #000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #000;
+    border-radius: 8px;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.add-product-link:hover {
+    background-color: #e0e0e0;
+}
+
+.add-product-link img {
+    width: 20px;
+}
+
