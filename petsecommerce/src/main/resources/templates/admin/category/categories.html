@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/admin/fragments/fragment.css}">
+    <link rel="stylesheet" th:href="@{/css/admin/categories/home.css}">
+    
+    <title>Admin - Categorias</title>
+</head>
+<body>
+    <div th:replace="~{admin/fragments/base-admin :: navbar}"></div>
+
+    <h1>Todas as categorias:</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Image</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="category : ${categories}">
+                <td><a th:href="@{/admin/category/create}"><img th:src="@{/pictures/icons/add.png}" alt="Add" class="icon"></a></td>
+                <td><a th:href="@{'/admin/category/edit/' + ${category.id}}"><img th:src="@{/pictures/icons/edit.png}" alt="Edit" class="icon"></a></td>
+                <td><a th:href="@{'/admin/category/delete/' + ${category.id} + '/confirm'}"><img th:src="@{/pictures/icons/remove.png}" alt="Delete" class="icon"></a></td>
+                <td th:text="${category.id}"></td>
+                <td th:text="${category.name}"></td>
+                <td><img th:src="@{${category.image}}" alt="Category Image" style="width: 100px; height: auto;"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

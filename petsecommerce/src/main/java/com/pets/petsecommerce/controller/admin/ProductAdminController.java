@@ -4,15 +4,12 @@ import com.pets.petsecommerce.dto.ProductDto;
 import com.pets.petsecommerce.model.entity.product.Product;
 import com.pets.petsecommerce.service.CategoryService;
 import com.pets.petsecommerce.service.ProductService;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.math.BigDecimal;
 import java.text.ParseException;
-import java.time.LocalDate;
 import java.util.Optional;
 
 @Controller
@@ -26,15 +23,10 @@ public class ProductAdminController {
     CategoryService categoryService;
 
     @GetMapping
-    public String products() {
-        return "admin/product/products";
-    }
-
-    @GetMapping("/all")
     public String getAllProducts(Model model) {
         model.addAttribute("products", productService.findAll());
 
-        return "admin/product/show-products";
+        return "admin/product/products";
     }
 
     // CREATE
@@ -71,9 +63,13 @@ public class ProductAdminController {
 
     @PostMapping("/edit/{id}")
     public String editProduct(@PathVariable(value = "id") Long id, ProductDto dto) {
+        System.out.println(dto);
+
         Product product = productService.convertDtoToProduct(dto);
         product.setId(id);
         productService.update(product);
+
+        System.out.println(product);
 
         return "redirect:/admin/product";
     }

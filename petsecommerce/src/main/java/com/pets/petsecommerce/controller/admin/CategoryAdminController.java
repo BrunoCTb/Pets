@@ -1,7 +1,6 @@
 package com.pets.petsecommerce.controller.admin;
 
 import com.pets.petsecommerce.dto.CategoryDto;
-import com.pets.petsecommerce.dto.ProductDto;
 import com.pets.petsecommerce.service.CategoryService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,15 +19,10 @@ public class CategoryAdminController {
     CategoryService categoryService;
 
     @GetMapping
-    public String categoryHome() {
-        return "/admin/category/category";
-    }
-
-    @GetMapping("/all")
     public String allCategories(Model model) {
         model.addAttribute("categories", categoryService.findAll());
 
-        return "admin/category/show-categories";
+        return "admin/category/categories";
     }
 
     @GetMapping("/create")
