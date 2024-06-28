@@ -41,7 +41,7 @@ public class RegisterController {
         String encode = new BCryptPasswordEncoder().encode(data.getPassword());
         User user = new User(data.getFirstName(), data.getLastName(), data.getEmail(),
                 encode, data.getTel(), Set.of(roleUser));
-//        userService.save(user);
+        userService.save(user);
 
         return "redirect:/";
     }
