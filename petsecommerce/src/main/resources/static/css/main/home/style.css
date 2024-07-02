@@ -103,7 +103,7 @@ main article {
     margin-top: 20px;
 }
 
-.p-buy-line button {
+.p-buy-line a {
     background-color: #00000075;
     color: #fff;
     width: 100%;

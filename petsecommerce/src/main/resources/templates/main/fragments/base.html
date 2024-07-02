@@ -14,13 +14,19 @@
     </ul>
 
     <div class="search-bar">
-        <button><img th:src="@{pictures/icons/lupa.png}" alt="lupa de pesquisa"></button>
+        <button><img th:src="@{/pictures/icons/lupa.png}" alt="lupa de pesquisa"></button>
         <input type="text" placeholder="Pesquise um produto">
     </div>
 
-    <ul class="acc-links">
+    <ul th:if="${!isAuth}" class="acc-links">
         <li><a th:href="@{/register}">Cadastro</a></li>
         <li><a th:href="@{/login}">Entrar</a></li>
+    </ul>
+
+    <ul th:if="${isAuth}" class="acc-auth">
+        <li><a id="cart-image" th:href="@{/carrinho}"><img th:src="@{/pictures/icons/cart.png}" alt="carrinho"></a></li>
+        <li><img id="profile-image" th:src="@{/pictures/icons/profile.png}" alt="imagem de perfil" th:title="${profileUsername}"></li>
+        <!-- <span th:text="${profileUsername}"></span> -->
     </ul>
 </header>
 

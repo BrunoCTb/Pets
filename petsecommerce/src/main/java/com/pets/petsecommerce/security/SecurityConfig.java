@@ -47,7 +47,9 @@ public class SecurityConfig {
                 .csrf(c -> c.disable())
                 .authorizeHttpRequests(requests -> requests
                         .requestMatchers("/css/**", "/js/**", "/pictures/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/", "/index", "/register", "/api/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/", "/index", "/register", "/api/**", "/produto/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/carrinho").hasRole("USER")
+                        .requestMatchers(HttpMethod.POST, "/carrinho/add/**").hasRole("USER")
                         .requestMatchers(HttpMethod.POST, "/register").permitAll()
                         .anyRequest().authenticated()
                 )

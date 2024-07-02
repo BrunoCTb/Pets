@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/main/fragments/fragment.css}">
+    <title>Pets - Compra</title>
+</head>
+<body>
+    <div th:replace="~{main/fragments/base :: navbar}"></div>
+
+    <h1 th:text="${product}"></h1>
+
+   <div>
+    <label>Quantidade</label>
+    <input type="number" name="" id="">
+   </div>
+
+   <a th:href="@{/produto/comprar}">Comprar produto</a>
+   <a th:href="@{'/produto/add/' + ${product.id}}">Adicionar ao carrinho</a>
+
+<!--    <div th:replace="~{main/fragments/base :: footer}"></div>-->
+</body>
+</html>

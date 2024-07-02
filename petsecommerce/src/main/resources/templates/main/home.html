@@ -18,30 +18,30 @@
 
 		<!-- Formato decidido de: 'separação por categorias' -->
 		<article class="products">
-			<section class="product-section new" th:each="p: ${products}">
+			<section class="product-section new" th:each="categories: ${productCategories}">
 				<div class="product-shop">
-					<h2 class="product-type">Novos produtos</h2>
+					<h2 class="product-type" th:text="${categories.getName()}">Novos produtos</h2>
 					<a href="#">Comprar</a>
 				</div>
 
 				<div class="list-of-products">
-					<div class="product" th:each="p: ${products}">
+					<div class="product" th:each="p: ${products}" th:if="${p.category.name} == ${categories.getName()}">
 						<div class="product-image">
 							<img src="" alt="imagem do produto">
 						</div>
 
 						<div class="product-info">
 							<div class="p-main-line">
-								<h4 id="productName">Nome produto</h4>
-								<span id="productColor">Cor</span>
+								<h4 id="productName" th:text="${p.name}">Nome produto</h4>
+								<span id="productColor" th:text="${p.color}">Cor</span>
 							</div>
 							<div class="p-price-line">
 								<span id="productPrice">R$ 15,25</span>
 								<span id="productOffer">R$ 10,99</span>
 							</div>
 							<div class="p-buy-line">
-								<button>Adicionar ao carrinho</button>
-								<button>Comprar</button>
+								<a th:href="@{'/carrinho/add/' + ${p.id}}">Adicionar ao carrinho</a>
+								<a th:href="@{'/produto/id=' + ${p.id}}"></a>
 							</div>
 						</div>
 					</div>
