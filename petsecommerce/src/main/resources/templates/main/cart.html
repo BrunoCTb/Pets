@@ -9,7 +9,9 @@
 <body>
     <div th:replace="~{main/fragments/base :: navbar}"></div>
 
-    <h1>Carrinho</h1>
+    <ul>
+        <li th:each="product : ${cartProducts}" th:text="${product}"></li>
+    </ul>
 
     <!-- <div th:replace="~{main/fragments/base :: footer}"></div> -->
 </body>

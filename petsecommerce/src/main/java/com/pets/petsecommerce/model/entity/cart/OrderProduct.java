@@ -3,12 +3,17 @@ package com.pets.petsecommerce.model.entity.cart;
 import com.pets.petsecommerce.model.entity.product.Product;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 
 @Entity
-@Data
-public class OrderItem {
+@Getter
+@Setter
+@NoArgsConstructor
+public class OrderProduct {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,6 +26,5 @@ public class OrderItem {
 
     @ManyToOne
     private Product product;
-
 
 }
