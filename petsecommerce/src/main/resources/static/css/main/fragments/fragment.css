@@ -55,7 +55,7 @@
 }
 
 .acc-auth {
-    /* background-color: red; */
+    position: relative;
     display: flex;
     align-items: center;
     list-style: none;
@@ -113,6 +113,40 @@
     border-right: none;
     outline: none;
 }
+
+
+.profile-options-card {
+    display: none;
+    background-color: #fff;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    right: 50%;
+    padding: 10px;
+    border: 1px solid #000;
+    font-family: arial;
+    font-size: 0.6em;
+}
+
+#profile-username {
+    color: #000;
+    font-weight: bold;
+}
+
+.profile-options-card ul{
+    margin-top: 8px;
+    list-style: none;
+}
+
+.profile-options-card a {
+    color: #00000093;
+    text-decoration: none;
+}
+
+.profile-options-card a:hover {
+    color: #000;
+}
+
 
 /* FOOTER */
 footer {
