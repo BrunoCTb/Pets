@@ -1,20 +1,88 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns:th="https://www.thymeleaf.org">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" th:href="@{/css/main/fragments/fragment.css}">
-    <title>Pets - Carrinho</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" th:href="@{/css/main/fragments/fragment.css}">
+	<link rel="stylesheet" th:href="@{/css/main/cart/cart-page.css}">
+	<title>Pets - Carrinho</title>
 </head>
+
 <body>
-    <div th:replace="~{main/fragments/base :: navbar}"></div>
+	<div th:replace="~{main/fragments/base :: navbar}"></div>
 
-    <ul>
-        <li th:each="product : ${cartProducts}" th:text="${product}"></li>
-    </ul>
+	<main th:if="${cartProducts.size() == 0}">
+		<h1>Seu carrinho está vazio!</h1>
+	</main>
 
-    <!-- <div th:replace="~{main/fragments/base :: footer}"></div> -->
+	<main th:if="${cartProducts.size() >= 1}">
+		<div class="cart-area">
+			<div class="cart-main">
+				<div class="cart-title">
+					<h1>Seu carrinho:</h1>
+				</div>
 
-    <script th:src="@{/js/main/header.js}"></script>
+				<hr>
+
+				<div class="all-cart-items">
+					<div class="cart-item" th:each="product : ${cartProducts}">
+						<div class="each-product-cart">
+							<div class="product-area-left">
+								<input type="checkbox" name="" id="select-product">
+								<div class="product-pic">
+									<img src="" alt="imagem do produto">
+								</div>
+							</div>
+							<div class="product-main">
+								<div class="product-cart-left">
+									<div class="product-info">
+										titulo
+										cor
+										categoria
+									</div>
+									<div class="product-actions">
+										<div id="p-quantity">
+											<button>-</button>
+											<input type="text" value="1" readonly>
+											<button>+</button>
+										</div>
+										<button id="p-delete">Excluir</button>
+										<button id="p-share">Compartilhar</button>
+									</div>
+								</div>
+								<div class="product-cart-right">
+									<div class="product-price">
+										<span id="p-price">R$ 165,99</span>
+										<span id="p-discount-price"></span>
+										<span id="p-other-price">ou 5x de R$ 35,00</span>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<hr>
+
+					</div>
+				</div>
+			</div>
+
+
+			<div class="cart-buy">
+				<div class="buy-info">
+					<span>Subtotal (2 produtos): R$ 152,99</span>
+					<span>Frete: R$ 3,99</span>
+				</div>
+				<input type="submit" value="Finalizar Pedido">
+			</div>
+
+		</div>
+
+	</main>
+
+	<!-- <div th:replace="~{main/fragments/base :: footer}"></div> -->
+
+	<script th:src="@{/js/main/header.js}"></script>
 </body>
+
 </html>

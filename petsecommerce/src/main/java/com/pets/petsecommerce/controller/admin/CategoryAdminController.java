@@ -34,7 +34,7 @@ public class CategoryAdminController {
     public String createCategory(@ModelAttribute CategoryDto dto) {
         System.out.println(dto);
 
-        return "redirect:/admin/";
+        return "redirect:/admin/category";
     }
 
 

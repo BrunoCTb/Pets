@@ -42,7 +42,7 @@ public class ProductAdminController {
         Product product = productService.convertDtoToProduct(dto);
         productService.save(product);
 
-        return "redirect:/admin/";
+        return "redirect:/admin/product";
     }
 
     // UPDATE

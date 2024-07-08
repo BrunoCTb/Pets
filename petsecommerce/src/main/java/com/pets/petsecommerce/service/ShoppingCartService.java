@@ -36,6 +36,12 @@ public class ShoppingCartService {
         // achar o carrinho pelo id do user atual
         Cart cartByUserId = this.findCartByUserId(userId);
 
+
+        // retornar lista vazia, pois ira ver tamanho da lista para checar se ha e quantos no carrinho
+        if (cartByUserId == null) {
+            return List.of();
+        }
+
         // retornar a lista de produtos do carrinho com referencia ao usuario atual
         List<CartProduct> cartItems = cartProductRepository.findByCartId(cartByUserId.getId());
 
