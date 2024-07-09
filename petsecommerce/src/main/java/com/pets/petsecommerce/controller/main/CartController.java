@@ -10,9 +10,12 @@ import com.pets.petsecommerce.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -58,6 +61,14 @@ public class CartController {
         // caso exista: adicionar o produto no carrinho (cart product)
         CartProduct newCartProduct = new CartProduct(1, cartByUserId, productToSave);
         shoppingCartService.createCartProduct(newCartProduct);
+
+        return "redirect:/";
+    }
+
+    @RequestMapping(value = "/remover/{id}", method = RequestMethod.POST)
+    public String deleteProduct(@PathVariable("id") Long productId) {
+        shoppingCartService.deleteCartProductById(productId);
+        System.out.println("deletando...");
 
         return "redirect:/";
     }

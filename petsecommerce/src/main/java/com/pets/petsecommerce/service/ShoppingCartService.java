@@ -5,6 +5,7 @@ import com.pets.petsecommerce.model.entity.cart.CartProduct;
 import com.pets.petsecommerce.model.entity.product.Product;
 import com.pets.petsecommerce.repository.CartProductRepository;
 import com.pets.petsecommerce.repository.CartRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,12 +26,19 @@ public class ShoppingCartService {
         return cartRepository.findByUserId(userId);
     }
 
+    @Transactional
     public void createCart(Cart cart) {
         cartRepository.save(cart);
     }
 
+    @Transactional
     public void createCartProduct(CartProduct cartProduct) {
         cartProductRepository.save(cartProduct);
+    }
+
+    @Transactional
+    public void deleteCartProductById(Long id) {
+        cartProductRepository.deleteById(id);
     }
 
     public List<CartProduct> getAllCartProducts(Long userId) {

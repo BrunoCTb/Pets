@@ -6,17 +6,18 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" th:href="@{/css/main/fragments/fragment.css}">
 	<link rel="stylesheet" th:href="@{/css/main/cart/cart-page.css}">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 	<title>Pets - Carrinho</title>
 </head>
 
 <body>
 	<div th:replace="~{main/fragments/base :: navbar}"></div>
 
-	<main th:if="${cartProducts.size() == 0}">
+	<main th:if="${cart.size() == 0}">
 		<h1>Seu carrinho está vazio!</h1>
 	</main>
 
-	<main th:if="${cartProducts.size() >= 1}">
+	<main th:if="${cart.size() >= 1}">
 		<div class="cart-area">
 			<div class="cart-main">
 				<div class="cart-title">
@@ -47,8 +48,8 @@
 											<input type="text" th:value="${cartProduct.getQuantity}" readonly>
 											<button>+</button>
 										</div>
-										<button id="p-delete">Excluir</button>
-										<button id="p-share">Compartilhar</button>
+										<button class="p-delete" th:data-product-id="${cartProduct.getId}">Excluir</button>
+										<button class="p-share">Compartilhar</button>
 									</div>
 								</div>
 								<div class="product-cart-right">
@@ -86,6 +87,7 @@
 	<!-- <div th:replace="~{main/fragments/base :: footer}"></div> -->
 
 	<script th:src="@{/js/main/header.js}"></script>
+	<script th:src="@{/js/main/jquery/cart.js}"></script>
 </body>
 
 </html>

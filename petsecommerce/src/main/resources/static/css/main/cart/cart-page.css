@@ -108,15 +108,18 @@ main {
 	width: 30px;
 }
 
-#p-delete, #p-share {
+.p-delete, .p-share {
 	background-color: #fff;
+	color: #000;
 	font-size: 15px;
 	padding: 10px;
 	border-radius: 8px;
 	border: 1px solid #00000074;
+	text-decoration: none;
+	cursor: pointer;
 }
 
-#p-delete:hover, #p-share:hover {
+.p-delete:hover, .p-share:hover {
 	background-color: #ffffffb1;
 }
 
