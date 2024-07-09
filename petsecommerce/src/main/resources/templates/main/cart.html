@@ -26,7 +26,7 @@
 				<hr>
 
 				<div class="all-cart-items">
-					<div class="cart-item" th:each="product : ${cartProducts}">
+					<div class="cart-item" th:each="cartProduct : ${cart}">
 						<div class="each-product-cart">
 							<div class="product-area-left">
 								<input type="checkbox" name="" id="select-product">
@@ -37,14 +37,14 @@
 							<div class="product-main">
 								<div class="product-cart-left">
 									<div class="product-info">
-										titulo
-										cor
-										categoria
+										<h3 th:text="${cartProduct.getProduct.name}" id="p-title"></h3>
+										<h5 th:text="${cartProduct.getProduct.color}" id="p-color"></h5>
+										<h4 th:text="${cartProduct.getProduct.category.name}" id="p-category"></h4>
 									</div>
 									<div class="product-actions">
 										<div id="p-quantity">
 											<button>-</button>
-											<input type="text" value="1" readonly>
+											<input type="text" th:value="${cartProduct.getQuantity}" readonly>
 											<button>+</button>
 										</div>
 										<button id="p-delete">Excluir</button>
@@ -53,9 +53,9 @@
 								</div>
 								<div class="product-cart-right">
 									<div class="product-price">
-										<span id="p-price">R$ 165,99</span>
+										<span th:text="'R$ ' + ${cartProduct.getProduct.price.toString.replace('.', ',')}" id="p-price">R$ 165,99</span>
 										<span id="p-discount-price"></span>
-										<span id="p-other-price">ou 5x de R$ 35,00</span>
+										<span id="p-other-price">ou 5x de R$ VALOR,VALOR</span>
 									</div>
 								</div>
 							</div>
@@ -70,8 +70,8 @@
 			<div class="cart-buy">
 				<div class="cart-buy-info">
 					<div class="pclose-subtotal">
-						<span id="pclose-subtotal-title">Subtotal (2 produtos):</span>
-						<span id="pclose-subtotal-price">R$ 152,99</span>
+						<span th:text="'Subtotal (' + ${cart.size} + ' produtos):'" id="pclose-subtotal-title"></span>
+						<span th:text="'R$ ' + ${totalCartPrice.replace('.', ',')}" id="pclose-subtotal-price"></span>
 					</div>
 					<div class="pclose-delivery">
 						<span id="pclose-delivery-title">Frete:</span>

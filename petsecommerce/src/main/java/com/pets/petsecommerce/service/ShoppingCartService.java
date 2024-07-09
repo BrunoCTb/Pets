@@ -8,6 +8,7 @@ import com.pets.petsecommerce.repository.CartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -32,10 +33,9 @@ public class ShoppingCartService {
         cartProductRepository.save(cartProduct);
     }
 
-    public List<Product> getAllCartProducts(Long userId) {
+    public List<CartProduct> getAllCartProducts(Long userId) {
         // achar o carrinho pelo id do user atual
         Cart cartByUserId = this.findCartByUserId(userId);
-
 
         // retornar lista vazia, pois ira ver tamanho da lista para checar se ha e quantos no carrinho
         if (cartByUserId == null) {
@@ -43,12 +43,23 @@ public class ShoppingCartService {
         }
 
         // retornar a lista de produtos do carrinho com referencia ao usuario atual
-        List<CartProduct> cartItems = cartProductRepository.findByCartId(cartByUserId.getId());
+        return cartProductRepository.findByCartId(cartByUserId.getId());
+    }
 
-        // retorna a lista com stream mapeando para pegar cada produto
-        return cartItems.stream()
+    // faz uma convercao da lista que é do tipo CartProduct pegando apenas o Product
+    public List<Product> CartProductsToProducts(List<CartProduct> cartProducts) {
+        return cartProducts.stream()
                 .map(CartProduct::getProduct)
                 .collect(Collectors.toList());
+    }
+
+    public BigDecimal getTotalCartPrice(List<Product> cartProducts) {
+        BigDecimal total = BigDecimal.ZERO;
+        for (Product i : cartProducts) {
+            total = total.add(i.getPrice());
+        }
+
+        return total;
     }
 
 }

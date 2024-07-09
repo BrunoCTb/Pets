@@ -22,6 +22,7 @@ public class Product {
     private String size;
     private String offer;
     private String image;
+    private Integer stock;
 
     private BigDecimal price; // preço fixo/padrão que pode ser o mesmo do previous
     private BigDecimal discountPrice;

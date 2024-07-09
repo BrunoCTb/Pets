@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.math.BigDecimal;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/carrinho")
@@ -31,10 +33,11 @@ public class CartController {
 
     @GetMapping
     public String cartPage(Model model) {
+        List<CartProduct> cartProducts = shoppingCartService.getAllCartProducts(userService.getCurrentUser().getId());
+        List<Product> products = shoppingCartService.CartProductsToProducts(cartProducts);
 
-        List<Product> cartProducts = shoppingCartService.getAllCartProducts(userService.getCurrentUser().getId());
-
-        model.addAttribute("cartProducts", cartProducts);
+        model.addAttribute("cart", cartProducts);
+        model.addAttribute("totalCartPrice", shoppingCartService.getTotalCartPrice(products).toString());
 
         return "main/cart";
     }
