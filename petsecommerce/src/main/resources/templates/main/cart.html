@@ -42,13 +42,13 @@
 										<h5 th:text="${cartProduct.getProduct.color}" id="p-color"></h5>
 										<h4 th:text="${cartProduct.getProduct.category.name}" id="p-category"></h4>
 									</div>
-									<div class="product-actions">
+									<div class="product-actions" th:data-product-id="${cartProduct.getId}">
 										<div id="p-quantity">
-											<button>-</button>
-											<input type="text" th:value="${cartProduct.getQuantity}" readonly>
-											<button>+</button>
+											<button class="sub-quantity">-</button>
+											<input class="p-quantity-value" type="text" th:data-product-quantity="${cartProduct.getId}" th:value="${cartProduct.getQuantity}" readonly>
+											<button class="plus-quantity">+</button>
 										</div>
-										<button class="p-delete" th:data-product-id="${cartProduct.getId}">Excluir</button>
+										<button class="p-delete">Excluir</button>
 										<button class="p-share">Compartilhar</button>
 									</div>
 								</div>

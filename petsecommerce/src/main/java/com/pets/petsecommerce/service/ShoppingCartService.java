@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -24,6 +25,21 @@ public class ShoppingCartService {
 
     public Cart findCartByUserId(Long userId) {
         return cartRepository.findByUserId(userId);
+    }
+
+    public Optional<CartProduct> findCartProductById(long userId) {
+        return cartProductRepository.findById(userId);
+    }
+
+    public void updateProductQuantity(CartProduct cartProduct, String operation) {
+        cartProduct.setId(cartProduct.getId());
+        if (operation.equals("plus")) {
+            cartProduct.setQuantity(cartProduct.getQuantity() + 1);
+        }else if (operation.equals("sub") && cartProduct.getQuantity() > 0){
+            cartProduct.setQuantity(cartProduct.getQuantity() - 1);
+        }
+        
+        cartProductRepository.save(cartProduct);
     }
 
     @Transactional
@@ -69,5 +85,5 @@ public class ShoppingCartService {
 
         return total;
     }
-
+        
 }
