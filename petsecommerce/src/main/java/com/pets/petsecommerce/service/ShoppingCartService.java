@@ -38,7 +38,7 @@ public class ShoppingCartService {
         }else if (operation.equals("sub") && cartProduct.getQuantity() > 0){
             cartProduct.setQuantity(cartProduct.getQuantity() - 1);
         }
-        
+
         cartProductRepository.save(cartProduct);
     }
 

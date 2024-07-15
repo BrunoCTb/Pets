@@ -4,7 +4,7 @@ $(document).ready(function () {
         var confirmDelete = confirm("Tem certeza que deseja remover o produto?");
         event.preventDefault();
         if (confirmDelete) {
-            var productId = $(this).data('product-id');
+            var productId = $(this).closest(".product-actions").data('product-id');
             $.ajax({
                 url: "/carrinho/remover/" + productId,
                 type: "POST",

@@ -65,10 +65,10 @@ public class CartController {
         return "redirect:/";
     }
 
-    @RequestMapping(value = "/remover/{id}", method = RequestMethod.GET)
-    public String deleteProduct(@PathVariable("id") String productId) {
-        shoppingCartService.deleteCartProductById(Long.parseLong(productId));
-        
+    @RequestMapping(value = "/remover/{id}", method = RequestMethod.POST)
+    public String deleteProduct(@PathVariable("id") Long productId) {
+        shoppingCartService.deleteCartProductById(productId);
+
         return "redirect:/";
     }
     
