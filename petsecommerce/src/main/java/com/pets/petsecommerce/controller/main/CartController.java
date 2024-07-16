@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/carrinho")
@@ -47,22 +48,27 @@ public class CartController {
 
     @GetMapping("/add/{id}")
     public String addToCart(@PathVariable("id") Long productId, Model model) {
-        // encontrar o usuario logado atual e encontrar o carrinho pelo id do user atual
         User currentUser = userService.getCurrentUser();
         Cart cartByUserId = shoppingCartService.findCartByUserId(currentUser.getId());
+        Optional<CartProduct> productInCart = shoppingCartService.productInCart(productId, currentUser.getId());
+
+        if (productInCart.isPresent()) {
+            shoppingCartService.updateProductQuantity(productInCart.get(), "plus");
+
+            return "redirect:/carrinho";
+        }
+
         Product productToSave = productRepository.findById(productId).get();
 
-        // verificar se o carrinho (cart) existe
-        // caso nao exista: criar o carrinho
         if (cartByUserId == null) {
             shoppingCartService.createCart(new Cart(currentUser));
-            // caso nao exista o carrinho dessa vez ele encontra pois foi criado acima
             cartByUserId = shoppingCartService.findCartByUserId(currentUser.getId());
         }
 
-        // caso exista: adicionar o produto no carrinho (cart product)
         CartProduct newCartProduct = new CartProduct(1, cartByUserId, productToSave);
         shoppingCartService.createCartProduct(newCartProduct);
+
+        shoppingCartService.productInCart(productId, currentUser.getId());
 
         return "redirect:/";
     }
@@ -73,15 +79,14 @@ public class CartController {
 
         return "redirect:/";
     }
-    
+
     @RequestMapping(value = "/quantidade/{operation}={id}", method = RequestMethod.POST)
     public String changeProductQuantity(@PathVariable("operation") String operation, @PathVariable("id") Long productId) {
         CartProduct cartProduct = shoppingCartService.findCartProductById(productId).get();
-
         shoppingCartService.updateProductQuantity(cartProduct, operation);
 
         return "redirect:/";
-    } 
-    
+    }
+
 
 }

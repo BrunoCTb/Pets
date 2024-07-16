@@ -13,6 +13,7 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Service
 public class ShoppingCartService {
@@ -27,12 +28,23 @@ public class ShoppingCartService {
         return cartRepository.findByUserId(userId);
     }
 
-    public Optional<CartProduct> findCartProductById(long userId) {
-        return cartProductRepository.findById(userId);
+    public Optional<CartProduct> findCartProductById(long productId) {
+        return cartProductRepository.findById(productId);
+    }
+
+    public Optional<CartProduct> productInCart(Long productId, Long currentUserId) {
+        List<CartProduct> allCartProducts = this.getAllCartProducts(currentUserId);
+
+        for (CartProduct p : allCartProducts) {
+            if (p.getProduct().getId().equals(productId)) {
+                return Optional.of(p);
+            }
+        }
+
+        return Optional.empty();
     }
 
     public void updateProductQuantity(CartProduct cartProduct, String operation) {
-        System.out.println(cartProduct);
 
         cartProduct.setId(cartProduct.getId());
         if (operation.equals("plus")) {
