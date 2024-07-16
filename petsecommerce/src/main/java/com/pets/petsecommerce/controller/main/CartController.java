@@ -56,6 +56,8 @@ public class CartController {
         // caso nao exista: criar o carrinho
         if (cartByUserId == null) {
             shoppingCartService.createCart(new Cart(currentUser));
+            // caso nao exista o carrinho dessa vez ele encontra pois foi criado acima
+            cartByUserId = shoppingCartService.findCartByUserId(currentUser.getId());
         }
 
         // caso exista: adicionar o produto no carrinho (cart product)

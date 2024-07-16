@@ -32,6 +32,8 @@ public class ShoppingCartService {
     }
 
     public void updateProductQuantity(CartProduct cartProduct, String operation) {
+        System.out.println(cartProduct);
+
         cartProduct.setId(cartProduct.getId());
         if (operation.equals("plus")) {
             cartProduct.setQuantity(cartProduct.getQuantity() + 1);
