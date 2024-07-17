@@ -1,25 +1,151 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns:th="https://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/main/fragments/fragment.css}">
     <title>Pets - Compra</title>
 </head>
+
 <body>
     <div th:replace="~{main/fragments/base :: navbar}"></div>
+    
+    <main>
+        <section class="card-product-shopping">
+            <div class="product-image-apresentation">
+                <div class="images-variation">
+                    <img src="" alt="imagem 1">
+                    <img src="" alt="imagem 2">
+                </div>
 
-    <h1 th:text="${product}"></h1>
+                <div class="image-zoom">
+                    <img src="" alt="imagem maior">
+                </div>
+            </div>
 
-   <div>
-    <label>Quantidade</label>
-    <input type="number" name="" id="">
-   </div>
 
-   <a th:href="@{/produto/comprar}">Comprar produto</a>
-   <a th:href="@{'/carrinho/add/' + ${product.id}}">Adicionar ao carrinho</a>
+            <div class="product-info-details">
+                <div class="p-main">
+                    <div class="p-title">
+                        <h2>Título do produto</h2>
+                    </div>
 
-<!--    <div th:replace="~{main/fragments/base :: footer}"></div>-->
+                    <div class="p-color">
+                        <span>Cor(es) diponível(s):</span>
+                        <select name="colors">
+                            <option value="color1">Cor 1</option>
+                            <option value="color2">Cor 2</option>
+                        </select>
+                    </div>
+
+                    <div class="p-purchases">
+                        <span>4 produtos vendidos</span>
+                    </div>
+                </div>
+
+                <div class="p-other">
+                    <div class="p-price">
+                        <div class="p-price-value">
+                            <span>-50%</span>
+                            <span>R$ 40,00</span>
+                        </div>
+                        <div class="p-old-price">
+                            <span>De: R$ 80,00</span>
+                        </div>
+                    </div>
+
+                    <div class="p-size">
+                        <span>Tamanhos: </span>
+                        <select name="size">
+                            <option value="small">Pequeno</option>
+                            <option value="small">Médio</option>
+                            <option value="small">Grande</option>
+                        </select>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="product-price-details">
+                <div class="p-delievery">
+                    <div>
+                        <span>Frete:</span>
+                        <span>R$ 3,99</span>
+                    </div>
+
+                    <div>
+                        <span>Data de previsão da entrega:</span>
+                        <span>28 - 29 de setembro</span>
+                    </div>
+                </div>
+
+                <div class="delievery-adress">
+                    <img src="#" alt="imagem de mapa">
+                    <a href="#">Endereço do usuário</a>
+                </div>
+
+                <div class="set-quantity">
+                    <select name="p-quantity">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                    </select>
+
+                    <span>Disponíveis: 12</span>
+                </div>
+
+                <div class="shopping-actions">
+                    <button>Adicionar no carrinho</button>
+                    <button>Comprar este produto</button>
+                </div>
+            </div>
+        </section>
+
+        <hr class="div-topic-line">
+
+        <section class="rel-products">
+            <h3>Produtos relacionados:</h3>
+
+            <div>
+                <button>
+                    << /button>
+                        <div class="rel-products-carousel">
+
+                        </div>
+                        <button>></button>
+            </div>
+        </section>
+
+        <hr class="div-topic-line">
+
+        <section class="product-important-details">
+            <h3>Sobre o produto:</h3>
+
+            <div class="product-construction-details">
+                <h4>Como é feito</h4>
+
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus pariatur beatae atque.</p>
+            </div>
+        </section>
+
+        <hr class="div-topic-line">
+
+        <section class="product-description">
+            <h3>Descrição do produto:</h3>
+
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Libero quam suscipit laborum nulla mollitia eos
+                consequuntur neque numquam beatae aliquid quas deserunt corporis, magnam expedita quo cumque! Corporis,
+                officia quibusdam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas provident nulla id
+                aliquid amet adipisci quod aperiam eveniet velit. Eveniet odio repudiandae cupiditate repellendus
+                blanditiis ab vitae et, incidunt deserunt!</p>
+        </section>
+    </main>
+
+    <div th:replace="~{main/fragments/base :: footer}"></div>
 
     <script th:src="@{/js/main/header.js}"></script>
 </body>
