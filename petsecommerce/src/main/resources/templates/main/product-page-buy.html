@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/main/fragments/fragment.css}">
+    <link rel="stylesheet" th:href="@{/css/main/product-shopping/style.css}">
     <title>Pets - Compra</title>
 </head>
 
 <body>
     <div th:replace="~{main/fragments/base :: navbar}"></div>
-    
+
     <main>
         <section class="card-product-shopping">
             <div class="product-image-apresentation">
@@ -28,7 +29,7 @@
             <div class="product-info-details">
                 <div class="p-main">
                     <div class="p-title">
-                        <h2>Título do produto</h2>
+                        <h2 th:text="${product.name}">Título do produto</h2>
                     </div>
 
                     <div class="p-color">
@@ -39,22 +40,6 @@
                         </select>
                     </div>
 
-                    <div class="p-purchases">
-                        <span>4 produtos vendidos</span>
-                    </div>
-                </div>
-
-                <div class="p-other">
-                    <div class="p-price">
-                        <div class="p-price-value">
-                            <span>-50%</span>
-                            <span>R$ 40,00</span>
-                        </div>
-                        <div class="p-old-price">
-                            <span>De: R$ 80,00</span>
-                        </div>
-                    </div>
-
                     <div class="p-size">
                         <span>Tamanhos: </span>
                         <select name="size">
@@ -63,44 +48,80 @@
                             <option value="small">Grande</option>
                         </select>
                     </div>
+                    
+                    <!-- <div class="p-purchases">
+                        <span>4 produtos vendidos</span>
+                    </div> -->
+                </div>
+
+                <hr class="product-div-line">
+                
+                <div class="p-other">
+                    <div class="p-price">
+                        <div class="p-price-value">
+                            <span id="p-discount-price">-%</span>
+                            <span id="p-def-price" th:text="'R$ ' + ${product.discountPrice}"></span>
+                        </div>
+                        <div class="p-old-price">
+                            <span id="p-old-price" th:text="'R$ ' + ${product.previousPrice}"></span>
+                        </div>
+                    </div>
+
+                    <hr class="product-div-line">
+
+                    <div class="p-div-value">
+                        <span>Em até 4x de R$ 9,99 sem juros</span>
+                        <span id="div-value-prices">Parcelas disponíveis</span>
+                    </div>
+                    
 
                 </div>
             </div>
 
             <div class="product-price-details">
-                <div class="p-delievery">
-                    <div>
+                <div class="p-subtotal">
+                    <span>Subtotal:</span>
+                    <span id="product-subtotal" th:text="'R$ ' + ${product.price}"></span>
+                </div>
+                
+                <div class="p-delivery">
+                    <div class="delivery-price">
                         <span>Frete:</span>
                         <span>R$ 3,99</span>
                     </div>
 
-                    <div>
+                    <div class="delivery-date">
                         <span>Data de previsão da entrega:</span>
                         <span>28 - 29 de setembro</span>
                     </div>
                 </div>
 
-                <div class="delievery-adress">
-                    <img src="#" alt="imagem de mapa">
-                    <a href="#">Endereço do usuário</a>
+                <div class="delivery-adress">
+                    <img th:src="@{/pictures/icons/locale.png}" alt="imagem de mapa">
+                    <a href="#">Editar endereço</a>
                 </div>
 
                 <div class="set-quantity">
-                    <select name="p-quantity">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
-                    </select>
+                    <div>
+                        <span>Quantidade:</span>
+                        <select name="p-quantity">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                        </select>
+                    </div>
 
-                    <span>Disponíveis: 12</span>
+                    <div>
+                        <span id="p-available" th:text="'Disponíveis: ' + ${product.stock}"></span>
+                    </div>
                 </div>
 
                 <div class="shopping-actions">
-                    <button>Adicionar no carrinho</button>
-                    <button>Comprar este produto</button>
+                    <button id="add-to-cart">Adicionar no carrinho</button>
+                    <button id="buy-product">Comprar este produto</button>
                 </div>
             </div>
         </section>
@@ -111,12 +132,14 @@
             <h3>Produtos relacionados:</h3>
 
             <div>
-                <button>
-                    << /button>
-                        <div class="rel-products-carousel">
-
-                        </div>
-                        <button>></button>
+                <button><</button>
+                <div class="rel-products-carousel">
+                    <div class="carousel p1"></div>
+                    <div class="carousel p2"></div>
+                    <div class="carousel p3"></div>
+                    <div class="carousel p4"></div>
+                </div>
+                <button>></button>
             </div>
         </section>
 
