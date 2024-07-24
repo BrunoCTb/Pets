@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Data
@@ -18,34 +19,26 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String color;
-    private String size;
-    private String offer;
+    private List<String> color;
+    private List<String> size;
     private String image;
+    private BigDecimal defaultPrice;
 
-    private BigDecimal price; // preço fixo/padrão que pode ser o mesmo do previous
-    private BigDecimal discountPrice;
-    private BigDecimal previousPrice; // e x: R$ 7,50 (previous/antigo) -> R$ 5,50 (discount/oferta)
-    private LocalDate initialOffer; // data de inicio de oferta
-    private LocalDate expirationOffer;
+    @ManyToOne
+    private Sale sale;
 
     @ManyToOne
     private ProductCategory category;
 
-    public Product(String name, String color, String size, String offer, String image, BigDecimal price,
-                   BigDecimal discountPrice, BigDecimal previousPrice, LocalDate initialOffer,
-                   LocalDate expirationOffer, ProductCategory category) {
+    public Product(String name, List<String> color, List<String> size, String image, BigDecimal defaultPrice, Sale sale, ProductCategory category) {
         this.name = name;
         this.color = color;
         this.size = size;
-        this.offer = offer;
         this.image = image;
-        this.price = price;
-        this.discountPrice = discountPrice;
-        this.previousPrice = previousPrice;
-        this.initialOffer = initialOffer;
-        this.expirationOffer = expirationOffer;
+        this.defaultPrice = defaultPrice;
+        this.sale = sale;
         this.category = category;
     }
+
 
 }

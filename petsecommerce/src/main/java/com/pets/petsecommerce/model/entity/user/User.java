@@ -29,6 +29,8 @@ public class User {
     private String password;
     @Column(name = "telefone")
     private String tel;
+    @Column
+    private Address address;
     @ManyToMany
     @LazyCollection(LazyCollectionOption.FALSE)
     private Set<Role> roles; // 1 user | 2 admin
